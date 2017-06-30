@@ -11,7 +11,7 @@ public class JeanLucPicard implements Captain {
     @Override
     public int stateroomsNumber() {
 
-        int countSteps = 1;
+/*        int countSteps = 1;
         boolean isFounded = false;
         Room first = spaceship.current();
         if (first.isLightOn() == false) {
@@ -38,31 +38,30 @@ public class JeanLucPicard implements Captain {
                 countSteps++;
             }
         }
-        return countSteps;
-
-
-/*        for (int i = 0; i <= count; i++) {
-            spaceship.next();
+        return countSteps;*/
+        int count = 0;
+        Room first = spaceship.current();
+        if (first.isLightOn() == false) {
+            first.turnOn();
+        }
+        boolean isFounded = false;
+        while (!isFounded) {
             count++;
-            System.out.println("ШАГ ВПЕРЕД " + count);
-            Room next = spaceship.current();
-            if (next.isLightOn() == true) {
-                next.turnOff();
-                System.out.println("ВЫКЛЮЧИЛИ СВЕТ");
-                for (int j = 0; j < count; j++) {
-                    spaceship.previous();
-                    System.out.println("ШАГ НАЗАД " + count);
-                }
-                Room previous = spaceship.current();
-                if (previous.isLightOn() == false) {
-                    System.out.println("КОНЕЦ");
-                    break;
-                }
-
+            for (int forwardStep = 0; forwardStep < count; forwardStep++) {
+                spaceship.next();
             }
+            if (spaceship.current().isLightOn() == true) {
+                spaceship.current().turnOff();
+            }
+            for (int backStep = 0; backStep < count; backStep++) {
+                spaceship.previous();
+            }
+            if (spaceship.current().isLightOn() == false) {
+                isFounded = true;
+            }
+        }
 
-        }*/
-
+        return count;
     }
 
 
