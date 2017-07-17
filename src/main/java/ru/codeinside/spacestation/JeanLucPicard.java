@@ -10,35 +10,6 @@ public class JeanLucPicard implements Captain {
 
     @Override
     public int stateroomsNumber() {
-
-/*        int countSteps = 1;
-        boolean isFounded = false;
-        Room first = spaceship.current();
-        if (first.isLightOn() == false) {
-            first.turnOn();
-        }
-
-        while (isFounded) {
-
-            for (int stepForward = 0; stepForward < countSteps; ++stepForward) {
-                spaceship.next();
-                countSteps++;
-            }
-
-            if (spaceship.current().isLightOn()) {
-                spaceship.current().turnOff();
-                for (int stepPrevious = 0; stepPrevious < countSteps; stepPrevious++) {
-                    spaceship.previous();
-                }
-                if (!spaceship.current().isLightOn()) {
-                    isFounded = true;
-                }
-            } else {
-                spaceship.next();
-                countSteps++;
-            }
-        }
-        return countSteps;*/
         int count = 0;
         Room first = spaceship.current();
         if (first.isLightOn() == false) {
